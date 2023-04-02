@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for objeto in objetos %}
+<div class="checkbox-container" style="height: 35px;">
+    <input type="checkbox" id="mi-checkbox-{{objeto.id}}" {% if objeto.valor %}checked{% endif %}>
+    <label for="mi-checkbox-{{objeto.id}}">{{objeto.nombre}}</label>
+</div>
+{% endfor %}
+{% block js %}
+<script src="{% static 'js/mi_archivo.js' %}" data-csrf-token="{{ csrf_token }}"></script>
+{% endblock js %}
+{% endblock content %}
